@@ -3,8 +3,6 @@
   "description": "Bot will open Quora question link, than it will give answer and hit on post",
   "main": "Main.xaml",
   "dependencies": {
-    "sosu_library": "[1.0.1]",
-    "sosu_library.Library.Runtime": "[1.0.1]",
     "UiPath.Excel.Activities": "[2.20.2]",
     "UiPath.System.Activities": "[23.4.3]",
     "UiPath.Testing.Activities": "[23.4.1]",
@@ -14,7 +12,7 @@
   "entitiesStores": [],
   "schemaVersion": "4.0",
   "studioVersion": "23.4.2.0",
-  "projectVersion": "1.0.0",
+  "projectVersion": "1.0.1",
   "runtimeOptions": {
     "autoDispose": false,
     "netFrameworkLazyLoading": false,
