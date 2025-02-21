@@ -6,7 +6,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>522.6666666666666,2308.6666666666665</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>579.3333333333334,2651.3333333333335</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Quora_WriteAnswers_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -88,7 +88,7 @@
       <AssemblyReference>UiPath.Platform</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Quora_WriteAnswers" sap:VirtualizedContainerService.HintSize="532.6666666666666,2244" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Quora_WriteAnswers" sap:VirtualizedContainerService.HintSize="589.3333333333334,2586.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="str_urlQuoraQuesion" />
       <Variable x:TypeArguments="x:String" Name="str_titleQuoraQuestion" />
@@ -107,24 +107,32 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="434,606.6666666666666" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="547.3333333333334,2499.3333333333335" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <TryCatch.Try>
-        <Sequence sap:VirtualizedContainerService.HintSize="526.6666666666666,2450" sap2010:WorkflowViewState.IdRef="Sequence_12">
+        <Sequence sap:VirtualizedContainerService.HintSize="508.6666666666667,2260" sap2010:WorkflowViewState.IdRef="Sequence_12">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Sequence DisplayName="Assigning Values" sap:VirtualizedContainerService.HintSize="484.6666666666667,552.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_13">
+          <Sequence DisplayName="Assigning Values" sap:VirtualizedContainerService.HintSize="466.6666666666667,84.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_13">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="422.6666666666667,254" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+            <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="388,54" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
               <ui:MultipleAssign.AssignOperations>
-                <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
+                <scg:List x:TypeArguments="ui:AssignOperation" Capacity="16">
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:String">[str_titleQuoraQuestion]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:String">[(in_TransactionItem.SpecificContent("Title").ToString).Split("."c)(0).ToString]</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
                   <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
                     <ui:AssignOperation.To>
                       <OutArgument x:TypeArguments="x:String">[str_urlQuoraQuesion]</OutArgument>
@@ -133,12 +141,12 @@
                       <InArgument x:TypeArguments="x:String">[in_TransactionItem.SpecificContent("Title_url").ToString]</InArgument>
                     </ui:AssignOperation.Value>
                   </ui:AssignOperation>
-                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
                     <ui:AssignOperation.To>
-                      <OutArgument x:TypeArguments="x:String">[str_titleQuoraQuestion]</OutArgument>
+                      <OutArgument x:TypeArguments="x:String">[str_answerQuoraQuestion]</OutArgument>
                     </ui:AssignOperation.To>
                     <ui:AssignOperation.Value>
-                      <InArgument x:TypeArguments="x:String">[in_TransactionItem.SpecificContent("Title").ToString]</InArgument>
+                      <InArgument x:TypeArguments="x:String">[in_TransactionItem.SpecificContent("Answer").ToString]</InArgument>
                     </ui:AssignOperation.Value>
                   </ui:AssignOperation>
                   <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_6">
@@ -146,15 +154,7 @@
                       <OutArgument x:TypeArguments="x:String">[str_bookLink]</OutArgument>
                     </ui:AssignOperation.To>
                     <ui:AssignOperation.Value>
-                      <InArgument x:TypeArguments="x:String">[in_Config("uipath").ToString]</InArgument>
-                    </ui:AssignOperation.Value>
-                  </ui:AssignOperation>
-                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
-                    <ui:AssignOperation.To>
-                      <OutArgument x:TypeArguments="x:String">[str_answerQuoraQuestion]</OutArgument>
-                    </ui:AssignOperation.To>
-                    <ui:AssignOperation.Value>
-                      <InArgument x:TypeArguments="x:String">[in_TransactionItem.SpecificContent("Answer").ToString]</InArgument>
+                      <InArgument x:TypeArguments="x:String">[in_Config( in_TransactionItem.SpecificContent("SiteName").ToString.Trim).ToString]</InArgument>
                     </ui:AssignOperation.Value>
                   </ui:AssignOperation>
                   <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
@@ -175,371 +175,370 @@
                   </ui:AssignOperation>
                 </scg:List>
               </ui:MultipleAssign.AssignOperations>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
             </ui:MultipleAssign>
-            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="422.6666666666667,54" sap2010:WorkflowViewState.IdRef="CommentOut_1">
-              <ui:CommentOut.Body>
-                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,174" sap2010:WorkflowViewState.IdRef="Sequence_15">
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                  <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="334,86.66666666666667" sap2010:WorkflowViewState.IdRef="MessageBox_2" Text="[str_titleQuoraQuestion + Environment.NewLine + str_urlQuoraQuesion + Environment.NewLine + str_answerQuoraQuestion]" />
-                </Sequence>
-              </ui:CommentOut.Body>
-              <sap:WorkflowViewStateService.ViewState>
-                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                </scg:Dictionary>
-              </sap:WorkflowViewStateService.ViewState>
-            </ui:CommentOut>
-            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="422.6666666666667,54" sap2010:WorkflowViewState.IdRef="CommentOut_2">
-              <ui:CommentOut.Body>
-                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,174" sap2010:WorkflowViewState.IdRef="Sequence_16">
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                  <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="334,86.66666666666667" sap2010:WorkflowViewState.IdRef="MessageBox_3" Text="[str_finalAnswer]" />
-                </Sequence>
-              </ui:CommentOut.Body>
-              <sap:WorkflowViewStateService.ViewState>
-                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                </scg:Dictionary>
-              </sap:WorkflowViewStateService.ViewState>
-            </ui:CommentOut>
           </Sequence>
-          <ui:OpenBrowser AutomaticallyDownloadWebDriver="{x:Null}" CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" BrowserType="Chrome" DisplayName="Open Browser" sap:VirtualizedContainerService.HintSize="484.6666666666667,54" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" UiBrowser="[browser_QuoraQuestionTab]" Url="[str_urlQuoraQuesion]">
+          <ui:OpenBrowser AutomaticallyDownloadWebDriver="{x:Null}" CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" BrowserType="Chrome" DisplayName="Open Browser" sap:VirtualizedContainerService.HintSize="466.6666666666667,2048" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" UiBrowser="[browser_QuoraQuestionTab]" Url="[str_urlQuoraQuesion]">
             <ui:OpenBrowser.Body>
               <ActivityAction x:TypeArguments="x:Object">
                 <ActivityAction.Argument>
                   <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
                 </ActivityAction.Argument>
-                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,244.66666666666666" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,1840.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_14">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                   <ui:MaximizeWindow Window="{x:Null}" DisplayName="Maximize Window" sap:VirtualizedContainerService.HintSize="334,25.333333333333332" sap2010:WorkflowViewState.IdRef="MaximizeWindow_1" />
-                  <Delay Duration="00:00:05" sap:VirtualizedContainerService.HintSize="334,92" sap2010:WorkflowViewState.IdRef="Delay_1" />
+                  <Delay Duration="00:00:06" sap:VirtualizedContainerService.HintSize="334,92" sap2010:WorkflowViewState.IdRef="Delay_1">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </Delay>
+                  <ui:UiElementExists DisplayName="Element Exists - QuoraQuestion&amp;AnswerChecking" Exists="[bool_isQuoraQuestion]" sap:VirtualizedContainerService.HintSize="334,107.33333333333333" sap2010:WorkflowViewState.IdRef="UiElementExists_4">
+                    <ui:UiElementExists.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="4a97fc84-96fe-4014-a89a-e9048b7daa40" InformativeScreenshot="af9761a567bdacf1ea6bbd59dc7e31ef" Selector="[string.Format(&quot;&lt;html app='chrome.exe' url='{0}' /&gt;&lt;webctrl id='mainContent' parentid='root' tag='DIV' class='q-box' /&gt;&lt;webctrl isleaf='1' parentid='mainContent' tag='SPAN' aaname='{1}*' /&gt;&quot;, str_urlQuoraQuesion, str_titleQuoraQuestion)]" WaitForReady="COMPLETE">
+                        <ui:Target.TimeoutMS>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:Target.TimeoutMS>
+                      </ui:Target>
+                    </ui:UiElementExists.Target>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:UiElementExists>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Quora Question Loaded : &quot; + bool_isQuoraQuestion.ToString]">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:LogMessage>
+                  <If Condition="[bool_isQuoraQuestion]" DisplayName="If - AnswerElementChecking" sap:VirtualizedContainerService.HintSize="334,54" sap2010:WorkflowViewState.IdRef="If_4">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <If.Then>
+                      <Sequence sap:VirtualizedContainerService.HintSize="376,288.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:UiElementExists DisplayName="Element Exists - isAnswerChecking" Exists="[bool_isAnswerQuora]" sap:VirtualizedContainerService.HintSize="334,107.33333333333333" sap2010:WorkflowViewState.IdRef="UiElementExists_3">
+                          <ui:UiElementExists.Target>
+                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="bcfbc8ac-1309-4150-8f27-87eda1a5bc67" InformativeScreenshot="a73520605802487f2273461e01791ac8" Selector="[string.Format(&quot;&lt;html app='chrome.exe' url='{0}' /&gt;&lt;webctrl aaname='Answer*' parentid='root' tag='BUTTON' type='button' /&gt;&quot;, str_urlQuoraQuesion)]">
+                              <ui:Target.TimeoutMS>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:Target.TimeoutMS>
+                              <ui:Target.WaitForReady>
+                                <InArgument x:TypeArguments="ui:WaitForReady" />
+                              </ui:Target.WaitForReady>
+                            </ui:Target>
+                          </ui:UiElementExists.Target>
+                        </ui:UiElementExists>
+                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,54" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Quora Answer Element : &quot;+bool_isAnswerQuora.ToString]">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </ui:LogMessage>
+                      </Sequence>
+                    </If.Then>
+                    <If.Else>
+                      <Sequence sap:VirtualizedContainerService.HintSize="376,288.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,54" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="[UiPath.Core.Activities.LogLevel.Warn]" Message="[&quot;Quora Question Element : &quot; + bool_isAnswerQuora.ToString]">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </ui:LogMessage>
+                        <ui:UiElementExists DisplayName="Element Exists - isAnswerChecking" Exists="[bool_isAnswerQuora]" sap:VirtualizedContainerService.HintSize="334,107.33333333333333" sap2010:WorkflowViewState.IdRef="UiElementExists_5">
+                          <ui:UiElementExists.Target>
+                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="bcfbc8ac-1309-4150-8f27-87eda1a5bc67" InformativeScreenshot="a73520605802487f2273461e01791ac8" Selector="[string.Format(&quot;&lt;html app='chrome.exe' url='{0}' /&gt;&lt;webctrl aaname='Answer*' parentid='root' tag='BUTTON' type='button' /&gt;&quot;, str_urlQuoraQuesion)]">
+                              <ui:Target.TimeoutMS>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:Target.TimeoutMS>
+                              <ui:Target.WaitForReady>
+                                <InArgument x:TypeArguments="ui:WaitForReady" />
+                              </ui:Target.WaitForReady>
+                            </ui:Target>
+                          </ui:UiElementExists.Target>
+                        </ui:UiElementExists>
+                      </Sequence>
+                    </If.Else>
+                  </If>
+                  <Delay Duration="00:00:06" sap:VirtualizedContainerService.HintSize="334,92" sap2010:WorkflowViewState.IdRef="Delay_3" />
+                  <If Condition="[bool_isAnswerQuora]" DisplayName="If - Clicking on Answer Button" sap:VirtualizedContainerService.HintSize="334,54" sap2010:WorkflowViewState.IdRef="If_3">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <If.Then>
+                      <Sequence sap:VirtualizedContainerService.HintSize="376,288.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'DIV'" sap:VirtualizedContainerService.HintSize="334,107.33333333333333" sap2010:WorkflowViewState.IdRef="Click_2" KeyModifiers="None" MouseButton="BTN_LEFT">
+                          <ui:Click.CursorPosition>
+                            <ui:CursorPosition Position="Center">
+                              <ui:CursorPosition.OffsetX>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:CursorPosition.OffsetX>
+                              <ui:CursorPosition.OffsetY>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:CursorPosition.OffsetY>
+                            </ui:CursorPosition>
+                          </ui:Click.CursorPosition>
+                          <ui:Click.Target>
+                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="6cc4407b-b656-425a-b5fa-74e51efd9830" InformativeScreenshot="5abffac87e78c5fe297d919f849014ef" Selector="[string.Format(&quot;&lt;html app='chrome.exe' url='{0}' /&gt;&lt;webctrl aaname='Answer*' tag='BUTTON' type='button' /&gt;&lt;webctrl aaname='Answer' parentid='root' tag='DIV' /&gt;&quot;, str_urlQuoraQuesion)]">
+                              <ui:Target.TimeoutMS>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:Target.TimeoutMS>
+                              <ui:Target.WaitForReady>
+                                <InArgument x:TypeArguments="ui:WaitForReady" />
+                              </ui:Target.WaitForReady>
+                            </ui:Target>
+                          </ui:Click.Target>
+                        </ui:Click>
+                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,54" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Quora Answer Elemnent  Clicked&quot;]">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </ui:LogMessage>
+                      </Sequence>
+                    </If.Then>
+                    <If.Else>
+                      <Sequence sap:VirtualizedContainerService.HintSize="376,273.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                        <Sequence.Variables>
+                          <Variable x:TypeArguments="x:Boolean" Name="bool_editeDraft" />
+                        </Sequence.Variables>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,54" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="[UiPath.Core.Activities.LogLevel.Warn]" Message="[&quot;Answer Element : &quot; + bool_isAnswerQuora.ToString]">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </ui:LogMessage>
+                        <Throw Exception="[new SystemException(&quot;No Answer Eliment found&quot;)]" sap:VirtualizedContainerService.HintSize="334,92" sap2010:WorkflowViewState.IdRef="Throw_3" />
+                      </Sequence>
+                    </If.Else>
+                  </If>
+                  <Delay Duration="00:00:06" sap:VirtualizedContainerService.HintSize="334,92" sap2010:WorkflowViewState.IdRef="Delay_2" />
+                  <ui:UiElementExists DisplayName="Element Exists - WriteAnswerPopup" Exists="[bool_isPopupQuestion]" sap:VirtualizedContainerService.HintSize="334,107.33333333333333" sap2010:WorkflowViewState.IdRef="UiElementExists_2">
+                    <ui:UiElementExists.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="ba53663b-5b42-44b6-9d23-2ac45876f380" InformativeScreenshot="8b81fe59314aa68a76c1f36c2c7014c7" Selector="[string.Format(&quot;&lt;html app='chrome.exe' url='{0}' /&gt;&lt;webctrl isleaf='1' tag='SPAN' aaname='{1}*' idx='*' /&gt;&quot;, str_urlQuoraQuesion, str_titleQuoraQuestion)]">
+                        <ui:Target.TimeoutMS>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:Target.TimeoutMS>
+                        <ui:Target.WaitForReady>
+                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                        </ui:Target.WaitForReady>
+                      </ui:Target>
+                    </ui:UiElementExists.Target>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:UiElementExists>
+                  <Delay Duration="00:00:06" sap:VirtualizedContainerService.HintSize="334,92" sap2010:WorkflowViewState.IdRef="Delay_4" />
+                  <If Condition="[bool_isPopupQuestion]" DisplayName="If - AnswerPopupWrite" sap:VirtualizedContainerService.HintSize="334,54" sap2010:WorkflowViewState.IdRef="If_2">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <If.Then>
+                      <Sequence sap:VirtualizedContainerService.HintSize="376,335.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:SetToClipboard DisplayName="Set To Clipboard" sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="SetToClipboard_1" Text="[str_finalAnswer]" />
+                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,54" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Answer Pop : &quot; + bool_isAnswerQuora.ToString]">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </ui:LogMessage>
+                        <ui:SendHotkey DelayBetweenKeys="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SpecialKey="{x:Null}" Activate="True" ClickBeforeTyping="True" DelayBefore="6000" DelayMS="6000" DisplayName="Send Hotkey 'DIV'" sap:VirtualizedContainerService.HintSize="334,54" sap2010:WorkflowViewState.IdRef="SendHotkey_1" Key="&quot;v&quot;" KeyModifiers="Ctrl">
+                          <ui:SendHotkey.Target>
+                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="468b81b3-457f-40ee-ac40-5ef3d4b9df7d" InformativeScreenshot="ac93e6d012aefb76c43b4d3e62c4e9e6" Selector="[string.Format(&quot;&lt;html app='chrome.exe' url='{0}' /&gt;&lt;webctrl class='section' parentid='root' tag='DIV' /&gt;&quot;, str_urlQuoraQuesion)]">
+                              <ui:Target.TimeoutMS>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:Target.TimeoutMS>
+                              <ui:Target.WaitForReady>
+                                <InArgument x:TypeArguments="ui:WaitForReady" />
+                              </ui:Target.WaitForReady>
+                            </ui:Target>
+                          </ui:SendHotkey.Target>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </ui:SendHotkey>
+                      </Sequence>
+                    </If.Then>
+                    <If.Else>
+                      <Sequence sap:VirtualizedContainerService.HintSize="376,364" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="[UiPath.Core.Activities.LogLevel.Warn]" Message="[&quot;Answer Pop : &quot; + bool_isPopupQuestion.ToString]">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </ui:LogMessage>
+                        <Throw Exception="[new SystemException(&quot;Answer Pop Question Not loaded&quot;)]" sap:VirtualizedContainerService.HintSize="334,92" sap2010:WorkflowViewState.IdRef="Throw_2" />
+                      </Sequence>
+                    </If.Else>
+                  </If>
+                  <Delay Duration="00:00:06" sap:VirtualizedContainerService.HintSize="334,92" sap2010:WorkflowViewState.IdRef="Delay_5" />
+                  <ui:UiElementExists DisplayName="Element Exists - Quora_Post" Exists="[bool_isPostPopup]" sap:VirtualizedContainerService.HintSize="334,107.33333333333333" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
+                    <ui:UiElementExists.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="38449c12-9d35-4a57-a9de-53d060d9ccb0" InformativeScreenshot="330a808d55de40de31bbc6a2d98c73d3" Selector="[string.Format(&quot;&lt;html app='chrome.exe' url='{0}' /&gt;&lt;webctrl aaname='Post' parentid='root' tag='BUTTON' type='button' /&gt;&quot;, str_urlQuoraQuesion)]">
+                        <ui:Target.TimeoutMS>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:Target.TimeoutMS>
+                        <ui:Target.WaitForReady>
+                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                        </ui:Target.WaitForReady>
+                      </ui:Target>
+                    </ui:UiElementExists.Target>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:UiElementExists>
+                  <If Condition="[bool_isPostPopup]" DisplayName="If - Clicking On Post" sap:VirtualizedContainerService.HintSize="334,54" sap2010:WorkflowViewState.IdRef="If_1">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <If.Then>
+                      <Sequence sap:VirtualizedContainerService.HintSize="376,379.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'DIV'" sap:VirtualizedContainerService.HintSize="334,107.33333333333333" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT">
+                          <ui:Click.CursorPosition>
+                            <ui:CursorPosition Position="Center">
+                              <ui:CursorPosition.OffsetX>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:CursorPosition.OffsetX>
+                              <ui:CursorPosition.OffsetY>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:CursorPosition.OffsetY>
+                            </ui:CursorPosition>
+                          </ui:Click.CursorPosition>
+                          <ui:Click.Target>
+                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="0287e79f-559f-4eed-9951-154d7836e354" InformativeScreenshot="923f160f8d1389b53d25c5034949b718" Selector="[string.Format(&quot;&lt;html app='chrome.exe' url='{0}' /&gt;&lt;webctrl aaname='Post' parentid='root' tag='BUTTON' type='button' /&gt;&quot;, str_urlQuoraQuesion)]">
+                              <ui:Target.TimeoutMS>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:Target.TimeoutMS>
+                              <ui:Target.WaitForReady>
+                                <InArgument x:TypeArguments="ui:WaitForReady" />
+                              </ui:Target.WaitForReady>
+                            </ui:Target>
+                          </ui:Click.Target>
+                        </ui:Click>
+                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Post in Answer : &quot; + bool_isPostPopup.ToString]" />
+                      </Sequence>
+                    </If.Then>
+                    <If.Else>
+                      <Sequence sap:VirtualizedContainerService.HintSize="376,273.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,54" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="[UiPath.Core.Activities.LogLevel.Warn]" Message="[&quot;Post in Answer : &quot; + bool_isPostPopup.ToString]">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </ui:LogMessage>
+                        <Throw Exception="[new SystemException()]" sap:VirtualizedContainerService.HintSize="334,92" sap2010:WorkflowViewState.IdRef="Throw_1" />
+                      </Sequence>
+                    </If.Else>
+                  </If>
+                  <ui:CloseTab Browser="[browser_QuoraQuestionTab]" DisplayName="Close Tab" sap:VirtualizedContainerService.HintSize="334,25.333333333333332" sap2010:WorkflowViewState.IdRef="CloseTab_1" />
                 </Sequence>
               </ActivityAction>
             </ui:OpenBrowser.Body>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:OpenBrowser>
-          <ui:UiElementExists DisplayName="Element Exists - QuoraQuestion&amp;AnswerChecking" Exists="[bool_isQuoraQuestion]" sap:VirtualizedContainerService.HintSize="484.6666666666667,107.33333333333333" sap2010:WorkflowViewState.IdRef="UiElementExists_4">
-            <ui:UiElementExists.Target>
-              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="4a97fc84-96fe-4014-a89a-e9048b7daa40" InformativeScreenshot="af9761a567bdacf1ea6bbd59dc7e31ef" Selector="[string.Format(&quot;&lt;html app='chrome.exe' url='{0}' /&gt;&lt;webctrl id='mainContent' parentid='root' tag='DIV' class='q-box' /&gt;&lt;webctrl isleaf='1' parentid='mainContent' tag='SPAN' aaname='{1}*' /&gt;&quot;, str_urlQuoraQuesion, str_titleQuoraQuestion)]" WaitForReady="COMPLETE">
-                <ui:Target.TimeoutMS>
-                  <InArgument x:TypeArguments="x:Int32" />
-                </ui:Target.TimeoutMS>
-              </ui:Target>
-            </ui:UiElementExists.Target>
-            <sap:WorkflowViewStateService.ViewState>
-              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                <x:Boolean x:Key="IsPinned">False</x:Boolean>
-              </scg:Dictionary>
-            </sap:WorkflowViewStateService.ViewState>
-          </ui:UiElementExists>
-          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="484.6666666666667,54" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Quora Question Loaded : &quot; + bool_isQuoraQuestion.ToString]">
-            <sap:WorkflowViewStateService.ViewState>
-              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                <x:Boolean x:Key="IsPinned">False</x:Boolean>
-              </scg:Dictionary>
-            </sap:WorkflowViewStateService.ViewState>
-          </ui:LogMessage>
-          <If Condition="[bool_isQuoraQuestion]" DisplayName="If - AnswerElementChecking" sap:VirtualizedContainerService.HintSize="484.6666666666667,54" sap2010:WorkflowViewState.IdRef="If_4">
-            <sap:WorkflowViewStateService.ViewState>
-              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                <x:Boolean x:Key="IsPinned">False</x:Boolean>
-              </scg:Dictionary>
-            </sap:WorkflowViewStateService.ViewState>
-            <If.Then>
-              <Sequence sap:VirtualizedContainerService.HintSize="376,288.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_9">
-                <sap:WorkflowViewStateService.ViewState>
-                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                  </scg:Dictionary>
-                </sap:WorkflowViewStateService.ViewState>
-                <ui:UiElementExists DisplayName="Element Exists - isAnswerChecking" Exists="[bool_isAnswerQuora]" sap:VirtualizedContainerService.HintSize="334,107.33333333333333" sap2010:WorkflowViewState.IdRef="UiElementExists_3">
-                  <ui:UiElementExists.Target>
-                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="bcfbc8ac-1309-4150-8f27-87eda1a5bc67" InformativeScreenshot="a73520605802487f2273461e01791ac8" Selector="[string.Format(&quot;&lt;html app='chrome.exe' url='{0}' /&gt;&lt;webctrl aaname='Answer*' parentid='root' tag='BUTTON' type='button' /&gt;&quot;, str_urlQuoraQuesion)]">
-                      <ui:Target.TimeoutMS>
-                        <InArgument x:TypeArguments="x:Int32" />
-                      </ui:Target.TimeoutMS>
-                      <ui:Target.WaitForReady>
-                        <InArgument x:TypeArguments="ui:WaitForReady" />
-                      </ui:Target.WaitForReady>
-                    </ui:Target>
-                  </ui:UiElementExists.Target>
-                </ui:UiElementExists>
-                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,54" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Quora Answer Element : &quot;+bool_isAnswerQuora.ToString]">
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                </ui:LogMessage>
-              </Sequence>
-            </If.Then>
-            <If.Else>
-              <Sequence sap:VirtualizedContainerService.HintSize="376,364" sap2010:WorkflowViewState.IdRef="Sequence_10">
-                <sap:WorkflowViewStateService.ViewState>
-                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                  </scg:Dictionary>
-                </sap:WorkflowViewStateService.ViewState>
-                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="[UiPath.Core.Activities.LogLevel.Warn]" Message="[&quot;Quora Question Element : &quot; + bool_isAnswerQuora.ToString]" />
-                <Throw Exception="[New SystemException()]" sap:VirtualizedContainerService.HintSize="334,92" sap2010:WorkflowViewState.IdRef="Throw_4" />
-              </Sequence>
-            </If.Else>
-          </If>
-          <If Condition="[bool_isAnswerQuora]" DisplayName="If - Clicking on Answer Button" sap:VirtualizedContainerService.HintSize="484.6666666666667,54" sap2010:WorkflowViewState.IdRef="If_3">
-            <sap:WorkflowViewStateService.ViewState>
-              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                <x:Boolean x:Key="IsPinned">False</x:Boolean>
-              </scg:Dictionary>
-            </sap:WorkflowViewStateService.ViewState>
-            <If.Then>
-              <Sequence sap:VirtualizedContainerService.HintSize="376,288.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_8">
-                <sap:WorkflowViewStateService.ViewState>
-                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                  </scg:Dictionary>
-                </sap:WorkflowViewStateService.ViewState>
-                <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'DIV'" sap:VirtualizedContainerService.HintSize="334,107.33333333333333" sap2010:WorkflowViewState.IdRef="Click_2" KeyModifiers="None" MouseButton="BTN_LEFT">
-                  <ui:Click.CursorPosition>
-                    <ui:CursorPosition Position="Center">
-                      <ui:CursorPosition.OffsetX>
-                        <InArgument x:TypeArguments="x:Int32" />
-                      </ui:CursorPosition.OffsetX>
-                      <ui:CursorPosition.OffsetY>
-                        <InArgument x:TypeArguments="x:Int32" />
-                      </ui:CursorPosition.OffsetY>
-                    </ui:CursorPosition>
-                  </ui:Click.CursorPosition>
-                  <ui:Click.Target>
-                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="6cc4407b-b656-425a-b5fa-74e51efd9830" InformativeScreenshot="5abffac87e78c5fe297d919f849014ef" Selector="[string.Format(&quot;&lt;html app='chrome.exe' url='{0}' /&gt;&lt;webctrl aaname='Answer*' tag='BUTTON' type='button' /&gt;&lt;webctrl aaname='Answer' parentid='root' tag='DIV' /&gt;&quot;, str_urlQuoraQuesion)]">
-                      <ui:Target.TimeoutMS>
-                        <InArgument x:TypeArguments="x:Int32" />
-                      </ui:Target.TimeoutMS>
-                      <ui:Target.WaitForReady>
-                        <InArgument x:TypeArguments="ui:WaitForReady" />
-                      </ui:Target.WaitForReady>
-                    </ui:Target>
-                  </ui:Click.Target>
-                </ui:Click>
-                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,54" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Quora Answer Elemnent  Clicked&quot;]">
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                </ui:LogMessage>
-              </Sequence>
-            </If.Then>
-            <If.Else>
-              <Sequence sap:VirtualizedContainerService.HintSize="376,273.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_3">
-                <Sequence.Variables>
-                  <Variable x:TypeArguments="x:Boolean" Name="bool_editeDraft" />
-                </Sequence.Variables>
-                <sap:WorkflowViewStateService.ViewState>
-                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                  </scg:Dictionary>
-                </sap:WorkflowViewStateService.ViewState>
-                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,54" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="[UiPath.Core.Activities.LogLevel.Warn]" Message="[&quot;Answer Element : &quot; + bool_isAnswerQuora.ToString]">
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                </ui:LogMessage>
-                <Throw Exception="[new SystemException(&quot;No Answer Eliment found&quot;)]" sap:VirtualizedContainerService.HintSize="334,92" sap2010:WorkflowViewState.IdRef="Throw_3" />
-              </Sequence>
-            </If.Else>
-          </If>
-          <ui:UiElementExists DisplayName="Element Exists - WriteAnswerPopup" Exists="[bool_isPopupQuestion]" sap:VirtualizedContainerService.HintSize="484.6666666666667,107.33333333333333" sap2010:WorkflowViewState.IdRef="UiElementExists_2">
-            <ui:UiElementExists.Target>
-              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="ba53663b-5b42-44b6-9d23-2ac45876f380" InformativeScreenshot="8b81fe59314aa68a76c1f36c2c7014c7" Selector="[string.Format(&quot;&lt;html app='chrome.exe' url='{0}' /&gt;&lt;webctrl isleaf='1' tag='SPAN' aaname='{1}*' idx='*' /&gt;&quot;, str_urlQuoraQuesion, str_titleQuoraQuestion)]">
-                <ui:Target.TimeoutMS>
-                  <InArgument x:TypeArguments="x:Int32" />
-                </ui:Target.TimeoutMS>
-                <ui:Target.WaitForReady>
-                  <InArgument x:TypeArguments="ui:WaitForReady" />
-                </ui:Target.WaitForReady>
-              </ui:Target>
-            </ui:UiElementExists.Target>
-            <sap:WorkflowViewStateService.ViewState>
-              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                <x:Boolean x:Key="IsPinned">False</x:Boolean>
-              </scg:Dictionary>
-            </sap:WorkflowViewStateService.ViewState>
-          </ui:UiElementExists>
-          <If Condition="[bool_isPopupQuestion]" DisplayName="If - AnswerPopupWrite" sap:VirtualizedContainerService.HintSize="484.6666666666667,792.6666666666666" sap2010:WorkflowViewState.IdRef="If_2">
-            <sap:WorkflowViewStateService.ViewState>
-              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                <x:Boolean x:Key="IsPinned">False</x:Boolean>
-              </scg:Dictionary>
-            </sap:WorkflowViewStateService.ViewState>
-            <If.Then>
-              <Sequence sap:VirtualizedContainerService.HintSize="376,335.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_6">
-                <sap:WorkflowViewStateService.ViewState>
-                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                  </scg:Dictionary>
-                </sap:WorkflowViewStateService.ViewState>
-                <ui:SetToClipboard DisplayName="Set To Clipboard" sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="SetToClipboard_1" Text="[str_finalAnswer]" />
-                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,54" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Answer Pop : &quot; + bool_isAnswerQuora.ToString]">
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                </ui:LogMessage>
-                <ui:SendHotkey DelayBetweenKeys="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SpecialKey="{x:Null}" Activate="True" ClickBeforeTyping="True" DelayBefore="6000" DelayMS="6000" DisplayName="Send Hotkey 'DIV'" sap:VirtualizedContainerService.HintSize="334,54" sap2010:WorkflowViewState.IdRef="SendHotkey_1" Key="&quot;v&quot;" KeyModifiers="Ctrl">
-                  <ui:SendHotkey.Target>
-                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="468b81b3-457f-40ee-ac40-5ef3d4b9df7d" InformativeScreenshot="ac93e6d012aefb76c43b4d3e62c4e9e6" Selector="[string.Format(&quot;&lt;html app='chrome.exe' url='{0}' /&gt;&lt;webctrl class='section' parentid='root' tag='DIV' /&gt;&quot;, str_urlQuoraQuesion)]">
-                      <ui:Target.TimeoutMS>
-                        <InArgument x:TypeArguments="x:Int32" />
-                      </ui:Target.TimeoutMS>
-                      <ui:Target.WaitForReady>
-                        <InArgument x:TypeArguments="ui:WaitForReady" />
-                      </ui:Target.WaitForReady>
-                    </ui:Target>
-                  </ui:SendHotkey.Target>
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                </ui:SendHotkey>
-              </Sequence>
-            </If.Then>
-            <If.Else>
-              <Sequence sap:VirtualizedContainerService.HintSize="376,273.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_7">
-                <sap:WorkflowViewStateService.ViewState>
-                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                  </scg:Dictionary>
-                </sap:WorkflowViewStateService.ViewState>
-                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,54" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="[UiPath.Core.Activities.LogLevel.Warn]" Message="[&quot;Answer Pop : &quot; + bool_isPopupQuestion.ToString]">
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                </ui:LogMessage>
-                <Throw Exception="[new SystemException(&quot;Answer Pop Question Not loaded&quot;)]" sap:VirtualizedContainerService.HintSize="334,92" sap2010:WorkflowViewState.IdRef="Throw_2" />
-              </Sequence>
-            </If.Else>
-          </If>
-          <ui:UiElementExists DisplayName="Element Exists - Quora_Post" Exists="[bool_isPostPopup]" sap:VirtualizedContainerService.HintSize="484.6666666666667,107.33333333333333" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
-            <ui:UiElementExists.Target>
-              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="38449c12-9d35-4a57-a9de-53d060d9ccb0" InformativeScreenshot="330a808d55de40de31bbc6a2d98c73d3" Selector="[string.Format(&quot;&lt;html app='chrome.exe' url='{0}' /&gt;&lt;webctrl aaname='Post' parentid='root' tag='BUTTON' type='button' /&gt;&quot;, str_urlQuoraQuesion)]">
-                <ui:Target.TimeoutMS>
-                  <InArgument x:TypeArguments="x:Int32" />
-                </ui:Target.TimeoutMS>
-                <ui:Target.WaitForReady>
-                  <InArgument x:TypeArguments="ui:WaitForReady" />
-                </ui:Target.WaitForReady>
-              </ui:Target>
-            </ui:UiElementExists.Target>
-            <sap:WorkflowViewStateService.ViewState>
-              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                <x:Boolean x:Key="IsPinned">False</x:Boolean>
-              </scg:Dictionary>
-            </sap:WorkflowViewStateService.ViewState>
-          </ui:UiElementExists>
-          <If Condition="[bool_isPostPopup]" DisplayName="If - Clicking On Post" sap:VirtualizedContainerService.HintSize="484.6666666666667,54" sap2010:WorkflowViewState.IdRef="If_1">
-            <sap:WorkflowViewStateService.ViewState>
-              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                <x:Boolean x:Key="IsPinned">False</x:Boolean>
-              </scg:Dictionary>
-            </sap:WorkflowViewStateService.ViewState>
-            <If.Then>
-              <Sequence sap:VirtualizedContainerService.HintSize="376,379.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_4">
-                <sap:WorkflowViewStateService.ViewState>
-                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                  </scg:Dictionary>
-                </sap:WorkflowViewStateService.ViewState>
-                <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'DIV'" sap:VirtualizedContainerService.HintSize="334,107.33333333333333" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT">
-                  <ui:Click.CursorPosition>
-                    <ui:CursorPosition Position="Center">
-                      <ui:CursorPosition.OffsetX>
-                        <InArgument x:TypeArguments="x:Int32" />
-                      </ui:CursorPosition.OffsetX>
-                      <ui:CursorPosition.OffsetY>
-                        <InArgument x:TypeArguments="x:Int32" />
-                      </ui:CursorPosition.OffsetY>
-                    </ui:CursorPosition>
-                  </ui:Click.CursorPosition>
-                  <ui:Click.Target>
-                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="0287e79f-559f-4eed-9951-154d7836e354" InformativeScreenshot="923f160f8d1389b53d25c5034949b718" Selector="[string.Format(&quot;&lt;html app='chrome.exe' url='{0}' /&gt;&lt;webctrl aaname='Post' parentid='root' tag='BUTTON' type='button' /&gt;&quot;, str_urlQuoraQuesion)]">
-                      <ui:Target.TimeoutMS>
-                        <InArgument x:TypeArguments="x:Int32" />
-                      </ui:Target.TimeoutMS>
-                      <ui:Target.WaitForReady>
-                        <InArgument x:TypeArguments="ui:WaitForReady" />
-                      </ui:Target.WaitForReady>
-                    </ui:Target>
-                  </ui:Click.Target>
-                </ui:Click>
-                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Post in Answer : &quot; + bool_isPostPopup.ToString]" />
-              </Sequence>
-            </If.Then>
-            <If.Else>
-              <Sequence sap:VirtualizedContainerService.HintSize="376,273.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_5">
-                <sap:WorkflowViewStateService.ViewState>
-                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                  </scg:Dictionary>
-                </sap:WorkflowViewStateService.ViewState>
-                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,54" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="[UiPath.Core.Activities.LogLevel.Warn]" Message="[&quot;Post in Answer : &quot; + bool_isPostPopup.ToString]">
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                </ui:LogMessage>
-                <Throw Exception="[new SystemException()]" sap:VirtualizedContainerService.HintSize="334,92" sap2010:WorkflowViewState.IdRef="Throw_1" />
-              </Sequence>
-            </If.Else>
-          </If>
-          <ui:CloseTab Browser="[browser_QuoraQuestionTab]" DisplayName="Close Tab" sap:VirtualizedContainerService.HintSize="484.6666666666667,25.333333333333332" sap2010:WorkflowViewState.IdRef="CloseTab_1" />
         </Sequence>
       </TryCatch.Try>
       <TryCatch.Catches>
-        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="400,433.3333333333333" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="513.3333333333334,22" sap2010:WorkflowViewState.IdRef="Catch`1_1">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
               <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
@@ -547,15 +546,22 @@
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
             </ActivityAction.Argument>
-            <Sequence sap:VirtualizedContainerService.HintSize="376,362.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_17">
+            <Sequence sap:VirtualizedContainerService.HintSize="376,272" sap2010:WorkflowViewState.IdRef="Sequence_17">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
               <ui:CloseTab Browser="[browser_QuoraQuestionTab]" DisplayName="Close Tab" sap:VirtualizedContainerService.HintSize="334,25.333333333333332" sap2010:WorkflowViewState.IdRef="CloseTab_2" />
+              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,54" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="[UiPath.Core.Activities.LogLevel.Warn]" Message="[exception.Message]">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </ui:LogMessage>
               <Rethrow sap:VirtualizedContainerService.HintSize="334,25.333333333333332" sap2010:WorkflowViewState.IdRef="Rethrow_1" />
-              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="[UiPath.Core.Activities.LogLevel.Warn]" Message="[exception.Message]" />
             </Sequence>
           </ActivityAction>
         </Catch>
